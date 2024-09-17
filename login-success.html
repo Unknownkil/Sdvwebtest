@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Success</title>
+</head>
+<body>
+  <h2>Login Successful!</h2>
+  <p>Aap ab 24 ghante ke liye logged in hain.</p>
+
+  <script>
+    // 24 ghante ke liye cookie set karo
+    const now = new Date();
+    const expirationTime = now.getTime() + 24 * 60 * 60 * 1000; // 24 hours
+    document.cookie = "login=success; expires=" + new Date(expirationTime).toUTCString() + "; path=/";
+
+    // Main page (index.html) par redirect karo
+    window.location.href = 'https://study-uk.great-site.net/index.html';
+  </script>
+</body>
+</html>
