@@ -1,23 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study UK Website</title>
-    <script>
-          function getCookie(name) {
-              const value = `; ${document.cookie}`;
-                  const parts = value.split(`; ${name}=`);
-                      if (parts.length === 2) return parts.pop().split(';').shift();
-                        }
-
-                          if (!getCookie('login')) {
-                              // Agar logged in nahi hain, toh generate key page par redirect karo
-                                  window.location.href = 'https://study-uk.great-site.net/generate-key.html';
-                                    }
-                                    </script>
-    <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #e6f7ff; /* Light blue background */
@@ -466,6 +452,17 @@ function loadTeacherFile(batchName, teacherFile) {
             console.error('Error loading teacher file:', error);
         });
 }
+
+        // Event listener for browser back button
+        window.addEventListener('popstate', (event) => {
+            if (event.state && event.state.batchName) {
+                // Show previous batch details
+                showBatchDetails(event.state.batchName);
+            } else {
+                // Reload the initial content if no batch is selected
+                location.reload();
+            }
+        });
     </script>
 </body>
-  </html>
+</html>
